@@ -266,86 +266,17 @@
     
     <!-- Habits Modal -->
     <div id="habitsModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white border-2 border-black card-shadow max-w-md w-full max-h-[80vh] overflow-y-auto p-4">
-            <div class="flex items-center justify-between mb-4 border-b border-black pb-2">
+        <div class="bg-white border-2 border-black card-shadow max-w-lg w-full max-h-[80vh] overflow-y-auto p-4">
+            <div class="flex items-center justify-between mb-2 border-b border-black pb-2">
                 <h3 class="font-black uppercase tracking-widest">My Habits</h3>
                 <button onclick="closeHabitsModal()" class="p-1 hover:bg-stone-100 rounded">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
                 </button>
             </div>
-            <div id="habitsList" class="space-y-2 mb-4">
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Wake up 6AM</span>
-                    <button onclick="removeHabit(0)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Reading</span>
-                    <button onclick="removeHabit(1)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Meditation</span>
-                    <button onclick="removeHabit(2)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Exercise</span>
-                    <button onclick="removeHabit(3)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Drink 2L Water</span>
-                    <button onclick="removeHabit(4)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Journaling</span>
-                    <button onclick="removeHabit(5)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Limit Screen Time</span>
-                    <button onclick="removeHabit(6)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Cold Shower</span>
-                    <button onclick="removeHabit(7)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">No Sugar</span>
-                    <button onclick="removeHabit(8)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">Plan Tomorrow</span>
-                    <button onclick="removeHabit(9)" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-            </div>
+            <p class="text-[10px] text-stone-400 mb-3">Drag to reorder • Click ✏️ to edit • Click ✕ to delete</p>
+            <div id="habitsList" class="space-y-2 mb-4"></div>
             <div class="flex gap-2">
-                <input type="text" id="newHabitInput" placeholder="Add new habit..." class="flex-1 px-3 py-2 border-2 border-black text-sm focus:outline-none" onkeypress="if(event.key===&#39;Enter&#39;)addHabit()">
+                <input type="text" id="newHabitInput" placeholder="Add new habit..." class="flex-1 px-3 py-2 border-2 border-black text-sm focus:outline-none" onkeypress="if(event.key==='Enter')addHabit()">
                 <button onclick="addHabit()" class="px-4 py-2 bg-black text-white font-bold text-sm uppercase">Add</button>
             </div>
         </div>
@@ -1435,13 +1366,134 @@
         
         function renderHabitsList() {
             document.getElementById('habitsList').innerHTML = state.habits.map((habit, idx) => `
-                <div class="flex items-center justify-between p-2 border border-stone-200 rounded">
-                    <span class="font-bold text-sm">${habit}</span>
-                    <button onclick="removeHabit(${idx})" class="text-stone-400 hover:text-red-500 p-1">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                <div class="flex items-center gap-2 p-2 border border-stone-200 rounded group hover:border-stone-400 transition-all" draggable="true" ondragstart="dragStart(event, ${idx})" ondragover="dragOver(event)" ondrop="drop(event, ${idx})" ondragend="dragEnd(event)">
+                    <!-- Drag Handle -->
+                    <button class="cursor-grab active:cursor-grabbing text-stone-300 hover:text-stone-500 p-1 touch-action-none" title="Drag to reorder">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="9" cy="6" r="1.5"/>
+                            <circle cx="15" cy="6" r="1.5"/>
+                            <circle cx="9" cy="12" r="1.5"/>
+                            <circle cx="15" cy="12" r="1.5"/>
+                            <circle cx="9" cy="18" r="1.5"/>
+                            <circle cx="15" cy="18" r="1.5"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Habit Name -->
+                    <span class="font-bold text-sm flex-1 truncate">${habit}</span>
+                    
+                    <!-- Move Up Button -->
+                    <button onclick="moveHabit(${idx}, -1)" class="text-stone-300 hover:text-stone-600 p-1 ${idx === 0 ? 'invisible' : ''}" title="Move up">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 15l-6-6-6 6"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Move Down Button -->
+                    <button onclick="moveHabit(${idx}, 1)" class="text-stone-300 hover:text-stone-600 p-1 ${idx === state.habits.length - 1 ? 'invisible' : ''}" title="Move down">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Edit Button -->
+                    <button onclick="editHabit(${idx})" class="text-stone-300 hover:text-blue-500 p-1" title="Edit habit">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Delete Button -->
+                    <button onclick="removeHabit(${idx})" class="text-stone-300 hover:text-red-500 p-1" title="Delete habit">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
                     </button>
                 </div>
             `).join('');
+        }
+        
+        // Drag and Drop functions
+        let draggedIndex = null;
+        
+        function dragStart(e, idx) {
+            draggedIndex = idx;
+            e.target.classList.add('opacity-50', 'border-dashed');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+        
+        function dragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+        
+        function drop(e, targetIdx) {
+            e.preventDefault();
+            if (draggedIndex !== null && draggedIndex !== targetIdx) {
+                const habit = state.habits.splice(draggedIndex, 1)[0];
+                state.habits.splice(targetIdx, 0, habit);
+                saveState();
+                renderHabitsList();
+                render();
+            }
+        }
+        
+        function dragEnd(e) {
+            e.target.classList.remove('opacity-50', 'border-dashed');
+            draggedIndex = null;
+        }
+        
+        // Move habit up or down
+        function moveHabit(idx, direction) {
+            const newIdx = idx + direction;
+            if (newIdx < 0 || newIdx >= state.habits.length) return;
+            
+            // Swap habits
+            const temp = state.habits[idx];
+            state.habits[idx] = state.habits[newIdx];
+            state.habits[newIdx] = temp;
+            
+            saveState();
+            renderHabitsList();
+            render();
+        }
+        
+        // Edit habit
+        function editHabit(idx) {
+            const currentName = state.habits[idx];
+            const newName = prompt('Edit habit name:', currentName);
+            
+            if (newName && newName.trim() && newName.trim() !== currentName) {
+                const trimmedName = newName.trim();
+                
+                // Check if name already exists
+                if (state.habits.includes(trimmedName)) {
+                    alert('A habit with this name already exists!');
+                    return;
+                }
+                
+                // Update habit name
+                state.habits[idx] = trimmedName;
+                
+                // Update habitData keys
+                Object.keys(state.habitData).forEach(dateKey => {
+                    if (state.habitData[dateKey][currentName] !== undefined) {
+                        state.habitData[dateKey][trimmedName] = state.habitData[dateKey][currentName];
+                        delete state.habitData[dateKey][currentName];
+                    }
+                });
+                
+                // Update habitGoals
+                if (state.habitGoals[currentName] !== undefined) {
+                    state.habitGoals[trimmedName] = state.habitGoals[currentName];
+                    delete state.habitGoals[currentName];
+                }
+                
+                saveState();
+                renderHabitsList();
+                render();
+            }
         }
         
         function addHabit() {
@@ -1458,10 +1510,28 @@
         }
         
         function removeHabit(idx) {
-            state.habits.splice(idx, 1);
-            saveState();
-            renderHabitsList();
-            render();
+            if (confirm(`Delete "${state.habits[idx]}"? This will remove all tracking data for this habit.`)) {
+                const habitName = state.habits[idx];
+                
+                // Remove from habits array
+                state.habits.splice(idx, 1);
+                
+                // Remove from habitData
+                Object.keys(state.habitData).forEach(dateKey => {
+                    if (state.habitData[dateKey][habitName] !== undefined) {
+                        delete state.habitData[dateKey][habitName];
+                    }
+                });
+                
+                // Remove from habitGoals
+                if (state.habitGoals[habitName] !== undefined) {
+                    delete state.habitGoals[habitName];
+                }
+                
+                saveState();
+                renderHabitsList();
+                render();
+            }
         }
         
         function toggleSettings() {
