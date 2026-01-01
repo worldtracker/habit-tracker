@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Annual Habit Tracker 2026</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="Habit Tracker">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Habits">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#8da18d">
+    
+    <!-- PWA Manifest & Icons -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="icon" type="image/png" href="icon-192.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #e5e5e5; }
+        .card-shadow { box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); }
+        .card-shadow-light { box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1); }
+        .btn-shadow { box-shadow: 2px 2px 0px 0px rgba(0,0,0,1); }
+        .container-shadow { box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.1); }
+        ::-webkit-scrollbar { height: 8px; width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #000; border: 2px solid #fff; }
+        ::-webkit-scrollbar-track { background: #eee; }
+        .habit-grid { display: grid; grid-template-columns: 180px 60px repeat(31, minmax(28px, 1fr)) 80px 60px 60px; }
+        .habit-grid-header { position: sticky; top: 0; z-index: 10; background: white; }
+        .weekly-circle { 
+            width: 70px; height: 70px; 
+            border-radius: 50%; 
+            border: 4px solid #e5e5e5;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .weekly-circle-progress {
+            position: absolute;
+            top: -4px; left: -4px;
+            width: 78px; height: 78px;
+        }
+        .success-circle {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .success-circle-progress {
+            position: absolute;
+            top: 0; left: 0;
+            width: 120px; height: 120px;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.left-0{left:0px}.top-10{top:2.5rem}.top-0{top:0px}.z-50{z-index:50}.z-10{z-index:10}.col-span-2{grid-column:span 2 / span 2}.col-span-3{grid-column:span 3 / span 3}.col-span-9{grid-column:span 9 / span 9}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-auto{margin-top:auto}.mb-1{margin-bottom:0.25rem}.mr-2{margin-right:0.5rem}.mb-3{margin-bottom:0.75rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-24{height:6rem}.h-3{height:0.75rem}.h-full{height:100%}.h-1\.5{height:0.375rem}.h-2{height:0.5rem}.h-5{height:1.25rem}.h-20{height:5rem}.h-4{height:1rem}.h-1{height:0.25rem}.h-\[200px\]{height:200px}.max-h-\[80vh\]{max-height:80vh}.max-h-32{max-height:8rem}.min-h-\[160px\]{min-height:160px}.min-h-\[calc\(100vh-2rem\)\]{min-height:calc(100vh - 2rem)}.min-h-screen{min-height:100vh}.w-24{width:6rem}.w-3{width:0.75rem}.w-56{width:14rem}.w-full{width:100%}.w-4{width:1rem}.w-5{width:1.25rem}.w-20{width:5rem}.min-w-\[150px\]{min-width:150px}.min-w-\[25px\]{min-width:25px}.min-w-\[28px\]{min-width:28px}.min-w-\[50px\]{min-width:50px}.min-w-\[70px\]{min-width:70px}.max-w-full{max-width:100%}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.border-collapse{border-collapse:collapse}.translate-y-0\.5{--tw-translate-y:0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-0{gap:0px}.gap-1{gap:0.25rem}.gap-3{gap:0.75rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-0\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.125rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.125rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-stone-100 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(245 245 244 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-sm{border-radius:0.125rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-b-2{border-bottom-width:2px}.border-l{border-left-width:1px}.border-l-2{border-left-width:2px}.border-r{border-right-width:1px}.border-black{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.border-stone-100{--tw-border-opacity:1;border-color:rgb(245 245 244 / var(--tw-border-opacity, 1))}.border-stone-200{--tw-border-opacity:1;border-color:rgb(231 229 228 / var(--tw-border-opacity, 1))}.border-stone-300{--tw-border-opacity:1;border-color:rgb(214 211 209 / var(--tw-border-opacity, 1))}.border-transparent{border-color:transparent}.border-black\/10{border-color:rgb(0 0 0 / 0.1)}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-stone-50{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-stone-100{--tw-bg-opacity:1;background-color:rgb(245 245 244 / var(--tw-bg-opacity, 1))}.bg-stone-200{--tw-bg-opacity:1;background-color:rgb(231 229 228 / var(--tw-bg-opacity, 1))}.bg-stone-50\/50{background-color:rgb(250 250 249 / 0.5)}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.p-1{padding:0.25rem}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pb-1{padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pt-4{padding-top:1rem}.pt-2{padding-top:0.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[8px\]{font-size:8px}.text-\[9px\]{font-size:9px}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.lowercase{text-transform:lowercase}.leading-none{line-height:1}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.tracking-tight{letter-spacing:-0.025em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-stone-400{--tw-text-opacity:1;color:rgb(168 162 158 / var(--tw-text-opacity, 1))}.text-stone-500{--tw-text-opacity:1;color:rgb(120 113 108 / var(--tw-text-opacity, 1))}.text-stone-600{--tw-text-opacity:1;color:rgb(87 83 78 / var(--tw-text-opacity, 1))}.text-stone-700{--tw-text-opacity:1;color:rgb(68 64 60 / var(--tw-text-opacity, 1))}.text-stone-800{--tw-text-opacity:1;color:rgb(41 37 36 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/70{color:rgb(255 255 255 / 0.7)}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.text-white\/80{color:rgb(255 255 255 / 0.8)}.line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:translate-y-0\.5:hover{--tw-translate-y:0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-black:hover{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.hover\:bg-stone-100:hover{--tw-bg-opacity:1;background-color:rgb(245 245 244 / var(--tw-bg-opacity, 1))}.hover\:bg-stone-50:hover{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity, 1))}.hover\:bg-stone-800:hover{--tw-bg-opacity:1;background-color:rgb(41 37 36 / var(--tw-bg-opacity, 1))}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-red-500:hover{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.hover\:shadow-none:hover{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-\[6px_6px_0px_0px_rgba\(0\2c 0\2c 0\2c 1\)\]:hover{--tw-shadow:6px 6px 0px 0px rgba(0,0,0,1);--tw-shadow-colored:6px 6px 0px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:p-4{padding:1rem}}@media (min-width: 768px){.md\:col-span-3{grid-column:span 3 / span 3}.md\:col-span-6{grid-column:span 6 / span 6}.md\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:grid-cols-7{grid-template-columns:repeat(7, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:grid-cols-6{grid-template-columns:repeat(6, minmax(0, 1fr))}}</style></head>
+<body class="min-h-screen p-2 sm:p-4 text-stone-700">
+    <div id="app" class="max-w-full mx-auto bg-white border-2 sm:border-3 border-black container-shadow p-2 sm:p-4 space-y-4 min-h-[calc(100vh-2rem)]">
+        
+        <!-- Header Row -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+            
+            <!-- Left Panel - Controls -->
+            <div class="md:col-span-3 border border-stone-200 p-3 bg-white flex flex-col gap-2 min-h-[160px]">
+                <!-- Year/Week Navigator -->
+                <div class="flex items-center justify-between bg-white border border-stone-300 px-2 py-1">
+                    <button onclick="navigatePrev()" class="hover:text-black p-1 active:scale-95 transition-transform">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"></path></svg>
+                    </button>
+                    <span id="navTitle" class="font-bold uppercase tracking-widest text-sm select-none text-center">January 2026</span>
+                    <button onclick="navigateNext()" class="hover:text-black p-1 active:scale-95 transition-transform">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg>
+                    </button>
+                </div>
+                
+                <!-- View Toggle Buttons -->
+                <div class="mt-2 flex items-center justify-start gap-2 flex-wrap">
+                    <button onclick="setView(&#39;daily&#39;)" id="btn-daily" class="flex items-center gap-1.5 px-3 py-1.5 border-2 border-black text-[10px] font-black uppercase tracking-widest transition-all bg-white text-black btn-shadow hover:-translate-y-0.5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                        Daily
+                    </button>
+                    <button onclick="setView(&#39;monthly&#39;)" id="btn-monthly" class="flex items-center gap-1.5 px-3 py-1.5 border-2 border-black text-[10px] font-black uppercase tracking-widest transition-all bg-black text-white shadow-none translate-y-0.5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                        Monthly
+                    </button>
+                    <button onclick="setView(&#39;dashboard&#39;)" id="btn-dashboard" class="flex items-center gap-1.5 px-3 py-1.5 border-2 border-black text-[10px] font-black uppercase tracking-widest transition-all bg-white text-black btn-shadow hover:-translate-y-0.5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+                        Dashboard
+                    </button>
+                    
+                    <!-- Settings -->
+                    <div class="relative inline-block">
+                        <button onclick="toggleSettings()" class="p-1.5 rounded-full border border-stone-200 text-stone-800 hover:text-black transition-colors" title="Settings">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                        <div id="settingsDropdown" class="absolute top-10 left-0 z-50 w-56 bg-white border-2 border-black shadow-xl p-3 space-y-3 hidden">
+                            <div class="text-[9px] font-black uppercase tracking-widest text-stone-500 border-b pb-1">Theme</div>
+                            <div class="space-y-1">
+                                <button onclick="setTheme(&#39;sage&#39;)" class="w-full flex items-center gap-2 p-1.5 hover:bg-stone-50 rounded text-left">
+                                    <span class="w-3 h-3 rounded-full" style="background:#8da18d"></span>
+                                    <span class="w-3 h-3 rounded-full" style="background:#d1b1b1"></span>
+                                    <span class="text-[10px]">Sage &amp; Rose</span>
+                                </button>
+                                <button onclick="setTheme(&#39;ocean&#39;)" class="w-full flex items-center gap-2 p-1.5 hover:bg-stone-50 rounded text-left">
+                                    <span class="w-3 h-3 rounded-full" style="background:#5b8a8a"></span>
+                                    <span class="w-3 h-3 rounded-full" style="background:#8db1d1"></span>
+                                    <span class="text-[10px]">Ocean &amp; Sky</span>
+                                </button>
+                                <button onclick="setTheme(&#39;sunset&#39;)" class="w-full flex items-center gap-2 p-1.5 hover:bg-stone-50 rounded text-left">
+                                    <span class="w-3 h-3 rounded-full" style="background:#d4a574"></span>
+                                    <span class="w-3 h-3 rounded-full" style="background:#c4a484"></span>
+                                    <span class="text-[10px]">Sunset &amp; Clay</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Row -->
+                <div class="grid grid-cols-2 gap-2 mt-2">
+                    <div class="bg-stone-50 border border-stone-200 p-2 rounded text-center">
+                        <span class="text-[9px] font-black uppercase text-stone-500 block">Done</span>
+                        <span id="statDone" class="text-xl font-black" style="color: rgb(141, 161, 141);">13</span>
+                    </div>
+                    <div class="bg-stone-50 border border-stone-200 p-2 rounded text-center">
+                        <span class="text-[9px] font-black uppercase text-stone-500 block">Rate</span>
+                        <span id="statRate" class="text-xl font-black" style="color: rgb(209, 177, 177);">4%</span>
+                    </div>
+                </div>
+                
+                <!-- My Habits Button -->
+                <div class="mt-auto">
+                    <button onclick="openHabitsModal()" id="habitsBtn" class="w-full flex items-center justify-between px-4 py-3 text-white rounded-sm card-shadow-light hover:translate-y-0.5 hover:shadow-none transition-all border border-black group" style="background-color: rgb(209, 177, 177);">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:scale-105 transition-transform">My Habits</span>
+                        <div class="flex flex-col items-end justify-center">
+                            <span id="habitCount" class="text-2xl font-black leading-none">10</span>
+                            <span class="text-[8px] font-bold text-white/70 uppercase tracking-wider">Active</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Middle Panel - Chart (Line with dots) -->
+            <div class="md:col-span-6 border border-stone-200 p-3 bg-stone-50 min-h-[160px] flex flex-col">
+                <div id="chartTitle" class="text-[9px] font-black uppercase tracking-widest text-stone-600 mb-2">Daily Progress This Month</div>
+                <div class="flex-1 relative">
+                    <svg id="lineChart" class="w-full h-full" viewBox="0 0 800 120" preserveAspectRatio="none">
+                <defs>
+                    <lineargradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#8da18d" stop-opacity="0.3"></stop>
+                        <stop offset="100%" stop-color="#8da18d" stop-opacity="0.05"></stop>
+                    </lineargradient>
+                </defs>
+                
+                <!-- Grid lines -->
+                <line x1="30" y1="115" x2="780" y2="115" stroke="#ddd" stroke-dasharray="3,3"></line><line x1="30" y1="67.5" x2="780" y2="67.5" stroke="#ddd" stroke-dasharray="3,3"></line><line x1="30" y1="20" x2="780" y2="20" stroke="#ddd" stroke-dasharray="3,3"></line>
+                
+                <!-- Y-axis labels -->
+                <text x="25" y="118" text-anchor="end" fill="#999" font-size="9" font-weight="bold">0</text><text x="25" y="70.5" text-anchor="end" fill="#999" font-size="9" font-weight="bold">5</text><text x="25" y="23" text-anchor="end" fill="#999" font-size="9" font-weight="bold">10</text>
+                
+                <!-- Area fill -->
+                <path d="M 30 115 C 38.333333333333336 115, 46.666666666666664 86.5, 55 86.5 C 63.333333333333336 86.5, 71.66666666666667 115, 80 115 C 88.33333333333333 115, 96.66666666666667 115, 105 115 C 113.33333333333333 115, 121.66666666666667 115, 130 115 C 138.33333333333334 115, 146.66666666666666 86.5, 155 86.5 C 163.33333333333334 86.5, 171.66666666666666 77, 180 77 C 188.33333333333334 77, 196.66666666666666 115, 205 115 C 213.33333333333334 115, 221.66666666666666 115, 230 115 C 238.33333333333334 115, 246.66666666666666 115, 255 115 C 263.3333333333333 115, 271.6666666666667 115, 280 115 C 288.3333333333333 115, 296.6666666666667 115, 305 115 C 313.3333333333333 115, 321.6666666666667 115, 330 115 C 338.3333333333333 115, 346.6666666666667 115, 355 115 C 363.3333333333333 115, 371.6666666666667 115, 380 115 C 388.3333333333333 115, 396.6666666666667 115, 405 115 C 413.3333333333333 115, 421.6666666666667 115, 430 115 C 438.3333333333333 115, 446.6666666666667 115, 455 115 C 463.3333333333333 115, 471.6666666666667 115, 480 115 C 488.3333333333333 115, 496.6666666666667 115, 505 115 C 513.3333333333334 115, 521.6666666666666 115, 530 115 C 538.3333333333334 115, 546.6666666666666 115, 555 115 C 563.3333333333334 115, 571.6666666666666 115, 580 115 C 588.3333333333334 115, 596.6666666666666 115, 605 115 C 613.3333333333334 115, 621.6666666666666 115, 630 115 C 638.3333333333334 115, 646.6666666666666 115, 655 115 C 663.3333333333334 115, 671.6666666666666 115, 680 115 C 688.3333333333334 115, 696.6666666666666 115, 705 115 C 713.3333333333334 115, 721.6666666666666 115, 730 115 C 738.3333333333334 115, 746.6666666666666 86.5, 755 86.5 C 763.3333333333334 86.5, 771.6666666666666 115, 780 115 L 780 115 L 30 115 Z" fill="url(#areaGradient)"></path>
+                
+                <!-- Line -->
+                <path d="M 30 115 C 38.333333333333336 115, 46.666666666666664 86.5, 55 86.5 C 63.333333333333336 86.5, 71.66666666666667 115, 80 115 C 88.33333333333333 115, 96.66666666666667 115, 105 115 C 113.33333333333333 115, 121.66666666666667 115, 130 115 C 138.33333333333334 115, 146.66666666666666 86.5, 155 86.5 C 163.33333333333334 86.5, 171.66666666666666 77, 180 77 C 188.33333333333334 77, 196.66666666666666 115, 205 115 C 213.33333333333334 115, 221.66666666666666 115, 230 115 C 238.33333333333334 115, 246.66666666666666 115, 255 115 C 263.3333333333333 115, 271.6666666666667 115, 280 115 C 288.3333333333333 115, 296.6666666666667 115, 305 115 C 313.3333333333333 115, 321.6666666666667 115, 330 115 C 338.3333333333333 115, 346.6666666666667 115, 355 115 C 363.3333333333333 115, 371.6666666666667 115, 380 115 C 388.3333333333333 115, 396.6666666666667 115, 405 115 C 413.3333333333333 115, 421.6666666666667 115, 430 115 C 438.3333333333333 115, 446.6666666666667 115, 455 115 C 463.3333333333333 115, 471.6666666666667 115, 480 115 C 488.3333333333333 115, 496.6666666666667 115, 505 115 C 513.3333333333334 115, 521.6666666666666 115, 530 115 C 538.3333333333334 115, 546.6666666666666 115, 555 115 C 563.3333333333334 115, 571.6666666666666 115, 580 115 C 588.3333333333334 115, 596.6666666666666 115, 605 115 C 613.3333333333334 115, 621.6666666666666 115, 630 115 C 638.3333333333334 115, 646.6666666666666 115, 655 115 C 663.3333333333334 115, 671.6666666666666 115, 680 115 C 688.3333333333334 115, 696.6666666666666 115, 705 115 C 713.3333333333334 115, 721.6666666666666 115, 730 115 C 738.3333333333334 115, 746.6666666666666 86.5, 755 86.5 C 763.3333333333334 86.5, 771.6666666666666 115, 780 115" fill="none" stroke="#8da18d" stroke-width="2.5"></path>
+                
+                <!-- Dots -->
+                
+                    <circle cx="30" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="55" cy="86.5" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="80" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="105" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="130" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="155" cy="86.5" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="180" cy="77" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="205" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="230" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="255" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="280" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="305" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="330" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="355" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="380" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="405" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="430" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="455" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="480" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="505" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="530" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="555" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="580" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="605" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="630" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="655" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="680" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="705" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="730" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="755" cy="86.5" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                    <circle cx="780" cy="115" r="4" fill="#8da18d" stroke="white" stroke-width="2"></circle>
+                
+                
+                <!-- X-axis line -->
+                <line x1="30" y1="115" x2="780" y2="115" stroke="#999"></line>
+            </svg>
+                </div>
+                <div id="chartLabels" class="flex justify-between mt-1 text-[8px] text-stone-400 font-bold"><span>1</span><span></span><span></span><span></span><span></span><span>6</span><span></span><span></span><span></span><span></span><span>11</span><span></span><span></span><span></span><span></span><span>16</span><span></span><span></span><span></span><span></span><span>21</span><span></span><span></span><span></span><span></span><span>26</span><span></span><span></span><span></span><span></span><span>31</span></div>
+            </div>
+            
+            <!-- Right Panel - Performance -->
+            <div class="md:col-span-3 border border-stone-200 bg-white flex flex-col overflow-hidden min-h-[160px]">
+                <div id="perfHeader" class="text-white text-[9px] font-bold uppercase py-1 text-center tracking-widest" style="background-color: rgb(141, 161, 141);">Monthly Success</div>
+                <div class="flex-1 flex flex-col items-center justify-center p-3">
+                    <div class="relative w-24 h-24">
+                        <svg class="w-full h-full" style="transform: rotate(-90deg);" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" stroke="#f0f0f0" stroke-width="7" fill="transparent"></circle>
+                            <circle id="perfCircle" cx="50" cy="50" r="40" stroke-width="7" fill="transparent" stroke-dasharray="251.33" stroke-dashoffset="251.33" stroke-linecap="round" style="transition: stroke-dashoffset 0.5s; stroke: rgb(141, 161, 141); stroke-dashoffset: 241.274;"></circle>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span id="perfPercent" class="text-2xl font-black" style="color: rgb(141, 161, 141);">4%</span>
+                        </div>
+                    </div>
+                    <div id="perfText" class="text-[9px] font-bold text-stone-500 uppercase tracking-wider mt-2">13 / 310 Completed</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div id="mainContent"></div>
+
+        <!-- Footer -->
+        <div class="text-center text-[10px] text-stone-400 pt-4 border-t border-stone-100">
+            🎯 Annual Habit Tracker 2026 • Data saves automatically in your browser
+        </div>
+    </div>
+    
+    <!-- Habits Modal -->
+    <div id="habitsModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border-2 border-black card-shadow max-w-lg w-full max-h-[80vh] overflow-y-auto p-4">
+            <div class="flex items-center justify-between mb-2 border-b border-black pb-2">
+                <h3 class="font-black uppercase tracking-widest">My Habits</h3>
+                <button onclick="closeHabitsModal()" class="p-1 hover:bg-stone-100 rounded">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <p class="text-[10px] text-stone-400 mb-3">Drag to reorder • Click ✏️ to edit • Click ✕ to delete</p>
+            <div id="habitsList" class="space-y-2 mb-4"></div>
+            <div class="flex gap-2">
+                <input type="text" id="newHabitInput" placeholder="Add new habit..." class="flex-1 px-3 py-2 border-2 border-black text-sm focus:outline-none" onkeypress="if(event.key==='Enter')addHabit()">
+                <button onclick="addHabit()" class="px-4 py-2 bg-black text-white font-bold text-sm uppercase">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== STATE ====================
+        const THEMES = {
+            sage: { primary: '#8da18d', secondary: '#d1b1b1' },
+            ocean: { primary: '#5b8a8a', secondary: '#8db1d1' },
+            sunset: { primary: '#d4a574', secondary: '#c4a484' }
+        };
+        
+        const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const SHORT_DAYS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+        const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        
+        let state = {
+            view: 'monthly',
+            year: 2026,
+            currentWeekStart: new Date(2026, 0, 5),
+            currentMonth: 0,
+            theme: 'ocean',
+            habits: ["Wake up 6AM", "Reading", "Meditation", "Exercise", "Drink 2L Water", "Journaling", "Limit Screen Time", "Cold Shower", "No Sugar", "Plan Tomorrow"],
+            habitGoals: {},
+            habitData: {}
+        };
+        
+        // ==================== INIT ====================
+        function init() {
+            loadState();
+            // Set default goals
+            state.habits.forEach(h => {
+                if (!state.habitGoals[h]) state.habitGoals[h] = 85;
+            });
+            applyTheme();
+            setView(state.view);
+        }
+        
+        function loadState() {
+            const saved = localStorage.getItem('habitTracker2026_v3');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                state = { ...state, ...parsed };
+                state.currentWeekStart = new Date(state.currentWeekStart);
+            }
+        }
+        
+        function saveState() {
+            localStorage.setItem('habitTracker2026_v3', JSON.stringify(state));
+        }
+        
+        // ==================== THEME ====================
+        function applyTheme() {
+            const theme = THEMES[state.theme];
+            document.getElementById('habitsBtn').style.backgroundColor = theme.secondary;
+            document.getElementById('perfHeader').style.backgroundColor = theme.primary;
+            document.getElementById('perfCircle').style.stroke = theme.primary;
+            document.getElementById('perfPercent').style.color = theme.primary;
+            document.getElementById('statDone').style.color = theme.primary;
+            document.getElementById('statRate').style.color = theme.secondary;
+        }
+        
+        function setTheme(themeName) {
+            state.theme = themeName;
+            saveState();
+            applyTheme();
+            render();
+        }
+        
+        // ==================== VIEW SWITCHING ====================
+        function setView(view) {
+            state.view = view;
+            ['daily', 'monthly', 'dashboard'].forEach(v => {
+                const btn = document.getElementById(`btn-${v}`);
+                if (v === view) {
+                    btn.className = 'flex items-center gap-1.5 px-3 py-1.5 border-2 border-black text-[10px] font-black uppercase tracking-widest transition-all bg-black text-white shadow-none translate-y-0.5';
+                } else {
+                    btn.className = 'flex items-center gap-1.5 px-3 py-1.5 border-2 border-black text-[10px] font-black uppercase tracking-widest transition-all bg-white text-black btn-shadow hover:-translate-y-0.5';
+                }
+            });
+            saveState();
+            render();
+        }
+        
+        // ==================== NAVIGATION ====================
+        function navigatePrev() {
+            if (state.view === 'daily') {
+                state.currentWeekStart.setDate(state.currentWeekStart.getDate() - 7);
+            } else if (state.view === 'monthly') {
+                state.currentMonth--;
+                if (state.currentMonth < 0) { state.currentMonth = 11; state.year--; }
+            } else {
+                state.year--;
+            }
+            saveState();
+            render();
+        }
+        
+        function navigateNext() {
+            if (state.view === 'daily') {
+                state.currentWeekStart.setDate(state.currentWeekStart.getDate() + 7);
+            } else if (state.view === 'monthly') {
+                state.currentMonth++;
+                if (state.currentMonth > 11) { state.currentMonth = 0; state.year++; }
+            } else {
+                state.year++;
+            }
+            saveState();
+            render();
+        }
+        
+        function updateNavTitle() {
+            const titleEl = document.getElementById('navTitle');
+            if (state.view === 'daily') {
+                const weekDates = getWeekDates(state.currentWeekStart);
+                titleEl.innerHTML = `Weekly Progress <span class="text-[10px] text-stone-400 font-medium lowercase">(${formatDateShort(weekDates[0])} - ${formatDateShort(weekDates[6])})</span>`;
+            } else if (state.view === 'monthly') {
+                titleEl.textContent = `${MONTHS[state.currentMonth]} ${state.year}`;
+            } else {
+                titleEl.textContent = `${state.year} Dashboard`;
+            }
+        }
+        
+        // ==================== UTILITIES ====================
+        function getWeekDates(startDate) {
+            const d = new Date(startDate);
+            const day = d.getDay();
+            const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+            const monday = new Date(d.setDate(diff));
+            const week = [];
+            for (let i = 0; i < 7; i++) {
+                const newDate = new Date(monday);
+                newDate.setDate(monday.getDate() + i);
+                week.push(newDate);
+            }
+            return week;
+        }
+        
+        function getDateKey(date) {
+            return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+        }
+        
+        function formatDate(date) {
+            const d = date.getDate().toString().padStart(2, '0');
+            const m = (date.getMonth() + 1).toString().padStart(2, '0');
+            const y = date.getFullYear();
+            return `${d}.${m}.${y}`;
+        }
+        
+        function formatDateShort(date) {
+            const d = date.getDate().toString().padStart(2, '0');
+            const m = (date.getMonth() + 1).toString().padStart(2, '0');
+            return `${d}.${m}`;
+        }
+        
+        function getDaysInMonth(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+        
+        function getWeeksInMonth(year, month) {
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const weeks = [];
+            let currentWeekStart = new Date(firstDay);
+            
+            // Adjust to Monday
+            const dayOfWeek = currentWeekStart.getDay();
+            if (dayOfWeek !== 1) {
+                currentWeekStart.setDate(currentWeekStart.getDate() - (dayOfWeek === 0 ? 6 : dayOfWeek - 1));
+            }
+            
+            while (currentWeekStart <= lastDay || weeks.length < 5) {
+                const weekEnd = new Date(currentWeekStart);
+                weekEnd.setDate(weekEnd.getDate() + 6);
+                weeks.push({ start: new Date(currentWeekStart), end: weekEnd });
+                currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+                if (weeks.length >= 6) break;
+            }
+            return weeks;
+        }
+        
+        // ==================== HABIT DATA ====================
+        function toggleHabit(dateKey, habit) {
+            if (!state.habitData[dateKey]) state.habitData[dateKey] = {};
+            state.habitData[dateKey][habit] = !state.habitData[dateKey][habit];
+            saveState();
+            render();
+        }
+        
+        function getCompletedForDate(dateKey) {
+            const dayHabits = state.habitData[dateKey] || {};
+            return Object.values(dayHabits).filter(Boolean).length;
+        }
+        
+        function getHabitCompletedForDate(dateKey, habit) {
+            return state.habitData[dateKey]?.[habit] || false;
+        }
+        
+        function getMonthlyStats(year, month) {
+            const days = getDaysInMonth(year, month);
+            let total = 0, completed = 0;
+            for (let d = 1; d <= days; d++) {
+                const key = getDateKey(new Date(year, month, d));
+                total += state.habits.length;
+                completed += getCompletedForDate(key);
+            }
+            return { total, completed, percentage: total > 0 ? Math.round((completed / total) * 100) : 0 };
+        }
+        
+        function getWeeklyStats(weekDates) {
+            let total = 0, completed = 0;
+            weekDates.forEach(date => {
+                const key = getDateKey(date);
+                total += state.habits.length;
+                completed += getCompletedForDate(key);
+            });
+            return { total, completed, percentage: total > 0 ? Math.round((completed / total) * 100) : 0 };
+        }
+        
+        function getWeekStatsForMonth(year, month, weekNum) {
+            const weeks = getWeeksInMonth(year, month);
+            if (weekNum >= weeks.length) return { total: 0, completed: 0, percentage: 0 };
+            
+            const week = weeks[weekNum];
+            let total = 0, completed = 0;
+            
+            for (let d = new Date(week.start); d <= week.end; d.setDate(d.getDate() + 1)) {
+                if (d.getMonth() === month) {
+                    const key = getDateKey(new Date(d));
+                    total += state.habits.length;
+                    completed += getCompletedForDate(key);
+                }
+            }
+            return { total, completed, percentage: total > 0 ? Math.round((completed / total) * 100) : 0 };
+        }
+        
+        function getHabitMonthlyStats(habit, year, month) {
+            const days = getDaysInMonth(year, month);
+            let completed = 0;
+            for (let d = 1; d <= days; d++) {
+                const key = getDateKey(new Date(year, month, d));
+                if (getHabitCompletedForDate(key, habit)) completed++;
+            }
+            return { completed, total: days, percentage: Math.round((completed / days) * 100) };
+        }
+        
+        // ==================== RENDER ====================
+        function render() {
+            updateNavTitle();
+            document.getElementById('habitCount').textContent = state.habits.length;
+            
+            if (state.view === 'daily') {
+                renderDaily();
+                renderDailyChart();
+            } else if (state.view === 'monthly') {
+                renderMonthly();
+                renderMonthlyChart();
+            } else {
+                renderDashboard();
+                renderYearlyChart();
+            }
+            
+            renderPerformance();
+            updateStats();
+        }
+        
+        function updateStats() {
+            let stats;
+            if (state.view === 'daily') {
+                const weekDates = getWeekDates(state.currentWeekStart);
+                stats = getWeeklyStats(weekDates);
+            } else if (state.view === 'monthly') {
+                stats = getMonthlyStats(state.year, state.currentMonth);
+            } else {
+                stats = getYearlyStats();
+            }
+            document.getElementById('statDone').textContent = stats.completed;
+            document.getElementById('statRate').textContent = stats.percentage + '%';
+        }
+        
+        function getYearlyStats() {
+            let total = 0, completed = 0;
+            for (let m = 0; m < 12; m++) {
+                const s = getMonthlyStats(state.year, m);
+                total += s.total;
+                completed += s.completed;
+            }
+            return { total, completed, percentage: total > 0 ? Math.round((completed / total) * 100) : 0 };
+        }
+        
+        // ==================== LINE CHART ====================
+        function renderMonthlyChart() {
+            document.getElementById('chartTitle').textContent = 'Daily Progress This Month';
+            const days = getDaysInMonth(state.year, state.currentMonth);
+            const data = [];
+            for (let d = 1; d <= days; d++) {
+                const key = getDateKey(new Date(state.year, state.currentMonth, d));
+                data.push(getCompletedForDate(key));
+            }
+            renderLineChart(data, Array.from({length: days}, (_, i) => i + 1));
+        }
+        
+        function renderDailyChart() {
+            document.getElementById('chartTitle').textContent = 'Daily Progress This Week';
+            const weekDates = getWeekDates(state.currentWeekStart);
+            const data = weekDates.map(d => getCompletedForDate(getDateKey(d)));
+            renderLineChart(data, DAY_NAMES);
+        }
+        
+        function renderYearlyChart() {
+            document.getElementById('chartTitle').textContent = 'Monthly Progress This Year';
+            const data = MONTHS.map((_, m) => getMonthlyStats(state.year, m).completed);
+            renderLineChart(data, MONTHS.map(m => m.substring(0, 3)));
+        }
+        
+        function renderLineChart(data, labels) {
+            const theme = THEMES[state.theme];
+            const svg = document.getElementById('lineChart');
+            const width = 800;
+            const height = 120;
+            const padding = { top: 20, right: 20, bottom: 5, left: 30 };
+            const chartWidth = width - padding.left - padding.right;
+            const chartHeight = height - padding.top - padding.bottom;
+            
+            const maxValue = Math.max(...data, state.habits.length);
+            const points = data.map((val, i) => ({
+                x: padding.left + (i / (data.length - 1 || 1)) * chartWidth,
+                y: padding.top + chartHeight - (val / maxValue) * chartHeight
+            }));
+            
+            // Create path
+            let pathD = '';
+            if (points.length > 0) {
+                pathD = `M ${points[0].x} ${points[0].y}`;
+                for (let i = 1; i < points.length; i++) {
+                    const cp1x = points[i-1].x + (points[i].x - points[i-1].x) / 3;
+                    const cp1y = points[i-1].y;
+                    const cp2x = points[i].x - (points[i].x - points[i-1].x) / 3;
+                    const cp2y = points[i].y;
+                    pathD += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${points[i].x} ${points[i].y}`;
+                }
+            }
+            
+            // Create area fill
+            let areaD = pathD;
+            if (points.length > 0) {
+                areaD += ` L ${points[points.length-1].x} ${padding.top + chartHeight} L ${points[0].x} ${padding.top + chartHeight} Z`;
+            }
+            
+            // Y-axis labels
+            const yLabels = [0, Math.round(maxValue/2), maxValue];
+            
+            svg.innerHTML = `
+                <defs>
+                    <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="${theme.primary}" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="${theme.primary}" stop-opacity="0.05"/>
+                    </linearGradient>
+                </defs>
+                
+                <!-- Grid lines -->
+                ${yLabels.map(val => {
+                    const y = padding.top + chartHeight - (val / maxValue) * chartHeight;
+                    return `<line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" stroke="#ddd" stroke-dasharray="3,3"/>`;
+                }).join('')}
+                
+                <!-- Y-axis labels -->
+                ${yLabels.map(val => {
+                    const y = padding.top + chartHeight - (val / maxValue) * chartHeight;
+                    return `<text x="${padding.left - 5}" y="${y + 3}" text-anchor="end" fill="#999" font-size="9" font-weight="bold">${val}</text>`;
+                }).join('')}
+                
+                <!-- Area fill -->
+                <path d="${areaD}" fill="url(#areaGradient)"/>
+                
+                <!-- Line -->
+                <path d="${pathD}" fill="none" stroke="${theme.primary}" stroke-width="2.5"/>
+                
+                <!-- Dots -->
+                ${points.map((p, i) => `
+                    <circle cx="${p.x}" cy="${p.y}" r="4" fill="${theme.primary}" stroke="white" stroke-width="2"/>
+                `).join('')}
+                
+                <!-- X-axis line -->
+                <line x1="${padding.left}" y1="${padding.top + chartHeight}" x2="${width - padding.right}" y2="${padding.top + chartHeight}" stroke="#999"/>
+            `;
+            
+            // Labels
+            const labelsEl = document.getElementById('chartLabels');
+            if (labels.length <= 12) {
+                labelsEl.innerHTML = labels.map(l => `<span>${l}</span>`).join('');
+            } else {
+                // Show every 5th label for months
+                labelsEl.innerHTML = labels.map((l, i) => `<span>${(i+1) % 5 === 1 || i === labels.length - 1 ? l : ''}</span>`).join('');
+            }
+        }
+        
+        function renderPerformance() {
+            const theme = THEMES[state.theme];
+            let stats, label;
+            
+            if (state.view === 'daily') {
+                const weekDates = getWeekDates(state.currentWeekStart);
+                stats = getWeeklyStats(weekDates);
+                label = 'Weekly Success';
+            } else if (state.view === 'monthly') {
+                stats = getMonthlyStats(state.year, state.currentMonth);
+                label = 'Monthly Success';
+            } else {
+                stats = getYearlyStats();
+                label = 'Annual Performance';
+            }
+            
+            document.getElementById('perfHeader').textContent = label;
+            document.getElementById('perfHeader').style.backgroundColor = theme.primary;
+            
+            const circumference = 2 * Math.PI * 40;
+            const offset = circumference - (stats.percentage / 100) * circumference;
+            document.getElementById('perfCircle').style.strokeDashoffset = offset;
+            document.getElementById('perfCircle').style.stroke = theme.primary;
+            document.getElementById('perfPercent').textContent = stats.percentage + '%';
+            document.getElementById('perfPercent').style.color = theme.primary;
+            document.getElementById('perfText').textContent = `${stats.completed} / ${stats.total} Completed`;
+        }
+        
+        // ==================== DAILY VIEW ====================
+        function renderDaily() {
+            const weekDates = getWeekDates(state.currentWeekStart);
+            const theme = THEMES[state.theme];
+            const today = new Date();
+            
+            document.getElementById('mainContent').innerHTML = `
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+                    ${weekDates.map((date, idx) => {
+                        const dateKey = getDateKey(date);
+                        const dayHabits = state.habitData[dateKey] || {};
+                        const completed = Object.values(dayHabits).filter(Boolean).length;
+                        const percentage = Math.round((completed / state.habits.length) * 100);
+                        const color = idx % 2 === 0 ? theme.primary : theme.secondary;
+                        const isToday = getDateKey(date) === getDateKey(today);
+                        const circumference = 2 * Math.PI * 36;
+                        const offset = circumference - (percentage / 100) * circumference;
+                        
+                        return `
+                            <div class="border-2 border-black bg-white flex flex-col overflow-hidden card-shadow transition-transform hover:-translate-y-1 ${isToday ? 'ring-2 ring-black ring-offset-2' : ''}">
+                                <div class="p-2 text-center border-b-2 border-black" style="background-color: ${color};">
+                                    <h3 class="text-white font-black uppercase tracking-tight text-base">${DAYS[date.getDay()]}</h3>
+                                    <p class="text-white/80 font-bold text-xs">${formatDate(date)}</p>
+                                </div>
+                                <div class="p-3 flex justify-center border-b border-stone-100">
+                                    <div class="relative w-20 h-20">
+                                        <svg class="w-full h-full" style="transform: rotate(-90deg);" viewBox="0 0 80 80">
+                                            <circle cx="40" cy="40" r="36" stroke="#f5f5f4" stroke-width="6" fill="transparent"/>
+                                            <circle cx="40" cy="40" r="36" stroke="${color}" stroke-width="6" fill="transparent"
+                                                stroke-dasharray="${circumference}" stroke-dashoffset="${offset}" stroke-linecap="round"/>
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span class="text-lg font-black">${percentage}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-2 bg-stone-50/50 flex-1">
+                                    <div class="text-[9px] font-black uppercase tracking-widest text-stone-400 mb-1 pb-1 border-b border-black/10">Daily Habits</div>
+                                    <div class="space-y-0.5 overflow-y-auto max-h-32">
+                                        ${state.habits.map(habit => {
+                                            const isChecked = dayHabits[habit] || false;
+                                            return `
+                                                <div class="flex items-center justify-between py-0.5">
+                                                    <span class="text-[10px] font-bold truncate flex-1 mr-2 ${isChecked ? 'line-through text-stone-400' : 'text-stone-700'}">${habit}</span>
+                                                    <button onclick="toggleHabit('${dateKey}', '${habit}')" 
+                                                        class="w-4 h-4 border-2 border-black flex items-center justify-center flex-shrink-0 ${isChecked ? 'bg-black' : 'bg-white hover:bg-stone-100'}">
+                                                        ${isChecked ? '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4"><polyline points="20 6 9 17 4 12"></polyline></svg>' : ''}
+                                                    </button>
+                                                </div>
+                                            `;
+                                        }).join('')}
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 text-center text-[9px] font-black uppercase border-t border-black">
+                                    <div class="p-1 border-r border-black" style="background-color: ${color}20;">
+                                        <span class="text-stone-500 block">Done</span>
+                                        <span class="text-lg leading-none">${completed}</span>
+                                    </div>
+                                    <div class="p-1 bg-stone-100">
+                                        <span class="text-stone-500 block">To Do</span>
+                                        <span class="text-lg leading-none">${state.habits.length - completed}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+        
+        // ==================== MONTHLY VIEW (REDESIGNED TO MATCH SCREENSHOTS) ====================
+        function renderMonthly() {
+            const theme = THEMES[state.theme];
+            const days = getDaysInMonth(state.year, state.currentMonth);
+            const weeks = getWeeksInMonth(state.year, state.currentMonth);
+            const today = new Date();
+            const monthStats = getMonthlyStats(state.year, state.currentMonth);
+            
+            // Get previous month stats for comparison
+            const prevMonth = state.currentMonth === 0 ? 11 : state.currentMonth - 1;
+            const prevYear = state.currentMonth === 0 ? state.year - 1 : state.year;
+            const prevMonthStats = getMonthlyStats(prevYear, prevMonth);
+            const vsPrev = monthStats.percentage - prevMonthStats.percentage;
+            
+            // Find best month this year
+            let bestMonthPct = 0;
+            let bestMonthIdx = 0;
+            for (let m = 0; m < 12; m++) {
+                const ms = getMonthlyStats(state.year, m);
+                if (ms.percentage > bestMonthPct) {
+                    bestMonthPct = ms.percentage;
+                    bestMonthIdx = m;
+                }
+            }
+            
+            // Get top 10 habits for the month
+            const habitStats = state.habits.map(habit => ({
+                name: habit,
+                ...getHabitMonthlyStats(habit, state.year, state.currentMonth)
+            })).sort((a, b) => b.completed - a.completed);
+            
+            // Weekly stats with date ranges
+            const weekData = [];
+            for (let w = 0; w < Math.min(weeks.length, 5); w++) {
+                const week = weeks[w];
+                const stats = getWeekStatsForMonth(state.year, state.currentMonth, w);
+                
+                // Get actual start/end dates for this week within the month
+                let startDay = week.start.getDate();
+                let endDay = week.end.getDate();
+                let startMonth = week.start.getMonth();
+                let endMonth = week.end.getMonth();
+                
+                // Clamp to current month
+                if (startMonth < state.currentMonth) {
+                    startDay = 1;
+                }
+                if (endMonth > state.currentMonth) {
+                    endDay = days;
+                }
+                
+                weekData.push({
+                    ...stats,
+                    startDay,
+                    endDay,
+                    label: `${MONTHS[state.currentMonth].substring(0, 3).toUpperCase()} ${String(startDay).padStart(2, '0')}-${String(endDay).padStart(2, '0')}`
+                });
+            }
+            
+            // Generate week columns - organize days into weeks
+            const weekColumns = [];
+            let currentWeek = [];
+            for (let d = 1; d <= days; d++) {
+                const date = new Date(state.year, state.currentMonth, d);
+                currentWeek.push({ day: d, date, dayOfWeek: date.getDay() });
+                
+                // End week on Sunday or last day of month
+                if (date.getDay() === 0 || d === days) {
+                    weekColumns.push([...currentWeek]);
+                    currentWeek = [];
+                }
+            }
+            
+            // Calculate circumference for circles
+            const smallCircumference = 2 * Math.PI * 28;
+            const largeCircumference = 2 * Math.PI * 52;
+            
+            document.getElementById('mainContent').innerHTML = `
+                <!-- Weekly Overview Section -->
+                <div class="border border-stone-200 mb-4 bg-white">
+                    <div class="flex">
+                        <!-- Left: Weekly Overview Label -->
+                        <div class="w-36 border-r border-stone-200 p-3 bg-stone-50 flex flex-col justify-center">
+                            <div class="text-[10px] font-black uppercase tracking-widest text-amber-700">Weekly Overview</div>
+                        </div>
+                        
+                        <!-- Week Columns with Circles -->
+                        <div class="flex-1 grid grid-cols-5 divide-x divide-stone-200">
+                            ${weekData.map((wd, i) => {
+                                const offset = smallCircumference - (wd.percentage / 100) * smallCircumference;
+                                return `
+                                <div class="p-4 text-center">
+                                    <div class="text-xs font-black text-stone-800 mb-1">W${i + 1}</div>
+                                    <div class="text-[9px] text-stone-400 mb-3">${wd.label}</div>
+                                    
+                                    <!-- Success Rate Circle -->
+                                    <div class="text-[8px] font-bold text-stone-400 uppercase mb-2">Success Rate</div>
+                                    <div class="flex justify-center mb-3">
+                                        <div class="relative w-16 h-16">
+                                            <svg class="w-full h-full" style="transform: rotate(-90deg);" viewBox="0 0 64 64">
+                                                <circle cx="32" cy="32" r="28" stroke="#e5e5e5" stroke-width="4" fill="transparent"/>
+                                                <circle cx="32" cy="32" r="28" stroke="${theme.primary}" stroke-width="4" fill="transparent"
+                                                    stroke-dasharray="${smallCircumference}" stroke-dashoffset="${offset}" stroke-linecap="round"/>
+                                            </svg>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-sm font-black">${wd.percentage}%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Completed -->
+                                    <div class="text-[8px] font-bold text-stone-400 uppercase mb-1">Completed</div>
+                                    <div class="text-sm font-black mb-3">${wd.completed}/${wd.total}</div>
+                                    
+                                    <!-- Weekly Activity Bar -->
+                                    <div class="text-[8px] font-bold text-stone-400 uppercase mb-1">Weekly Activity</div>
+                                    <div class="flex justify-center gap-0.5 h-8 items-end">
+                                        ${Array(7).fill(0).map((_, dayIdx) => {
+                                            // Calculate activity for each day of the week
+                                            const weekStart = weeks[i]?.start;
+                                            if (!weekStart) return '<div class="w-2 bg-stone-200 h-1"></div>';
+                                            const dayDate = new Date(weekStart);
+                                            dayDate.setDate(dayDate.getDate() + dayIdx);
+                                            if (dayDate.getMonth() !== state.currentMonth) {
+                                                return '<div class="w-2 bg-stone-200 h-1"></div>';
+                                            }
+                                            const dayKey = getDateKey(dayDate);
+                                            const dayCompleted = getCompletedForDate(dayKey);
+                                            const dayPct = state.habits.length > 0 ? (dayCompleted / state.habits.length) * 100 : 0;
+                                            const barHeight = Math.max(4, (dayPct / 100) * 32);
+                                            return `<div class="w-2 rounded-t" style="height: ${barHeight}px; background-color: ${theme.primary};"></div>`;
+                                        }).join('')}
+                                    </div>
+                                </div>
+                            `}).join('')}
+                        </div>
+                        
+                        <!-- Right: Monthly Success Panel -->
+                        <div class="w-56 border-l border-stone-200">
+                            <div class="p-2 text-center text-white font-black text-xs uppercase tracking-wider" style="background-color: ${theme.primary};">
+                                Monthly Success
+                            </div>
+                            <div class="p-4 flex flex-col items-center">
+                                <!-- Large Success Circle -->
+                                <div class="relative w-28 h-28 mb-3">
+                                    <svg class="w-full h-full" style="transform: rotate(-90deg);" viewBox="0 0 112 112">
+                                        <circle cx="56" cy="56" r="52" stroke="#e5e5e5" stroke-width="6" fill="transparent"/>
+                                        <circle cx="56" cy="56" r="52" stroke="${theme.primary}" stroke-width="6" fill="transparent"
+                                            stroke-dasharray="${largeCircumference}" stroke-dashoffset="${largeCircumference - (monthStats.percentage / 100) * largeCircumference}" stroke-linecap="round"/>
+                                    </svg>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-2xl font-black" style="color: ${theme.primary};">${monthStats.percentage}%</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-xs text-stone-500 mb-3">${monthStats.completed} / ${monthStats.total} Completed</div>
+                                
+                                <div class="flex items-center justify-between w-full text-[10px] border-t border-stone-100 pt-2">
+                                    <span class="text-stone-400">VS PREV</span>
+                                    <span class="font-bold ${vsPrev >= 0 ? 'text-green-600' : 'text-rose-500'}">${vsPrev >= 0 ? '↑' : '↓'} ${Math.abs(vsPrev)}%</span>
+                                </div>
+                                <div class="flex items-center justify-between w-full text-[10px] mt-1">
+                                    <span class="text-stone-400">BEST</span>
+                                    <span class="font-bold text-rose-500">♛ ${bestMonthPct}%</span>
+                                    <span class="text-stone-400 text-[9px]">${MONTHS[bestMonthIdx]} ${state.year}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Grid: Habits Table + Top 10 -->
+                <div class="flex gap-4">
+                    <!-- Habit Grid with Week-based columns -->
+                    <div class="flex-1 border border-stone-200 overflow-x-auto bg-white">
+                        <table class="w-full border-collapse text-[10px]">
+                            <thead class="sticky top-0 bg-white z-10">
+                                <!-- Week Header Row -->
+                                <tr class="border-b border-stone-200">
+                                    <th class="text-left p-2 font-black uppercase tracking-widest min-w-[130px] border-r border-stone-200 sticky left-0 bg-white z-20 text-stone-400" rowspan="2">
+                                        <span class="flex items-center gap-1">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                                            Habits
+                                        </span>
+                                    </th>
+                                    <th class="p-2 font-black uppercase text-stone-400 min-w-[45px] border-r border-stone-200 text-center" rowspan="2">Goal</th>
+                                    ${weekColumns.map((week, wIdx) => `
+                                        <th colspan="${week.length}" class="p-1 text-center border-l border-stone-300 bg-stone-50">
+                                            <div class="text-[9px] font-black text-stone-600">Week ${wIdx + 1}</div>
+                                        </th>
+                                    `).join('')}
+                                    <th colspan="3" class="p-1 text-center border-l-2 border-black bg-stone-100 font-black uppercase text-stone-500" rowspan="1">Monthly Summary</th>
+                                </tr>
+                                <tr class="border-b-2 border-black">
+                                    ${weekColumns.map((week, wIdx) => week.map((d, dIdx) => {
+                                        const isToday = getDateKey(d.date) === getDateKey(today);
+                                        const isWeekend = d.dayOfWeek === 0 || d.dayOfWeek === 6;
+                                        return `<th class="p-1 text-center min-w-[26px] ${isToday ? 'bg-black text-white' : isWeekend ? 'bg-stone-100' : ''} ${dIdx === 0 ? 'border-l border-stone-300' : 'border-l border-stone-100'}">
+                                            <div class="text-[7px] font-bold ${isToday ? 'text-white/70' : 'text-stone-400'}">${SHORT_DAYS[d.dayOfWeek]}</div>
+                                            <div class="font-black text-xs">${d.day}</div>
+                                        </th>`;
+                                    }).join('')).join('')}
+                                    <th class="p-1 text-center min-w-[55px] border-l-2 border-black bg-stone-50">
+                                        <div class="text-[8px] font-bold text-stone-400">SUCCESS %</div>
+                                    </th>
+                                    <th class="p-1 text-center min-w-[40px] border-l border-stone-200 bg-stone-50">
+                                        <div class="text-[8px] font-bold" style="color: ${theme.primary};">DONE</div>
+                                    </th>
+                                    <th class="p-1 text-center min-w-[40px] border-l border-stone-200 bg-stone-50">
+                                        <div class="text-[8px] font-bold text-rose-400">MISS</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${state.habits.map((habit, hIdx) => {
+                                    const stats = getHabitMonthlyStats(habit, state.year, state.currentMonth);
+                                    const goal = state.habitGoals[habit] || 85;
+                                    return `
+                                        <tr class="border-b border-stone-100 hover:bg-stone-50">
+                                            <td class="p-2 font-bold border-r border-stone-200 sticky left-0 bg-white z-10 text-xs">${habit}</td>
+                                            <td class="p-1 text-center font-bold text-stone-400 border-r border-stone-200 text-xs">${goal}%</td>
+                                            ${weekColumns.map((week, wIdx) => week.map((d, dIdx) => {
+                                                const dateKey = getDateKey(d.date);
+                                                const isChecked = getHabitCompletedForDate(dateKey, habit);
+                                                const isToday = getDateKey(d.date) === getDateKey(today);
+                                                const isWeekend = d.dayOfWeek === 0 || d.dayOfWeek === 6;
+                                                
+                                                return `<td class="p-0.5 text-center ${isToday ? 'bg-yellow-50' : isWeekend ? 'bg-stone-50' : ''} ${dIdx === 0 ? 'border-l border-stone-300' : 'border-l border-stone-100'}">
+                                                    <button onclick="toggleHabit('${dateKey}', '${habit}')" 
+                                                        class="w-5 h-5 border ${isChecked ? 'border-transparent' : 'border-stone-300'} rounded-sm flex items-center justify-center mx-auto transition-all ${isChecked ? '' : 'hover:border-black hover:bg-stone-100'}">
+                                                        ${isChecked ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="${theme.primary}" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>` : ''}
+                                                    </button>
+                                                </td>`;
+                                            }).join('')).join('')}
+                                            <td class="p-1 text-center border-l-2 border-black">
+                                                <div class="flex items-center gap-1 px-1">
+                                                    <div class="flex-1 bg-stone-200 h-1.5 rounded-full overflow-hidden">
+                                                        <div class="h-full rounded-full" style="width: ${stats.percentage}%; background-color: ${theme.primary};"></div>
+                                                    </div>
+                                                    <span class="text-[9px] font-bold min-w-[22px]">${stats.percentage}%</span>
+                                                </div>
+                                            </td>
+                                            <td class="p-1 text-center font-black border-l border-stone-200 text-sm" style="color: ${theme.primary};">${stats.completed}</td>
+                                            <td class="p-1 text-center font-black text-rose-400 border-l border-stone-200 text-sm">${stats.total - stats.completed}</td>
+                                        </tr>
+                                    `;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Top 10 This Month -->
+                    <div class="w-52 border border-stone-200 bg-white flex-shrink-0">
+                        <div class="p-3 border-b border-stone-200 bg-stone-50">
+                            <div class="text-[10px] font-black uppercase tracking-widest text-stone-600">Top 10 This Month</div>
+                        </div>
+                        <div class="divide-y divide-stone-100">
+                            ${habitStats.slice(0, 10).map((hs, i) => {
+                                const barWidth = habitStats[0].completed > 0 ? (hs.completed / habitStats[0].completed) * 100 : 0;
+                                return `
+                                <div class="flex items-center justify-between p-2 hover:bg-stone-50 relative">
+                                    <div class="absolute left-0 top-0 bottom-0 opacity-20" style="width: ${barWidth}%; background-color: ${theme.primary};"></div>
+                                    <div class="flex items-center gap-2 relative z-10">
+                                        <span class="text-[10px] font-black ${i < 3 ? 'text-amber-600' : 'text-stone-400'} w-4">${i + 1}</span>
+                                        <span class="text-[11px] font-bold truncate max-w-[100px]">${hs.name}</span>
+                                    </div>
+                                    <div class="flex items-center gap-1 relative z-10">
+                                        <span class="text-[10px] font-bold text-stone-500">${hs.completed} days</span>
+                                        <div class="w-2 h-2 rounded-full" style="background-color: ${theme.primary};"></div>
+                                    </div>
+                                </div>
+                            `}).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // ==================== DASHBOARD VIEW (REDESIGNED TO MATCH SCREENSHOTS) ====================
+        function renderDashboard() {
+            const theme = THEMES[state.theme];
+            const yearlyStats = getYearlyStats();
+            
+            // Find best month and calculate stats
+            let bestMonth = 0, bestMonthPct = 0;
+            let maxStreak = 0;
+            let currentStreak = 0;
+            let totalActiveDays = 0;
+            
+            // Calculate streaks and active days
+            for (let m = 0; m < 12; m++) {
+                const stats = getMonthlyStats(state.year, m);
+                if (stats.percentage > bestMonthPct) {
+                    bestMonthPct = stats.percentage;
+                    bestMonth = m;
+                }
+                
+                const days = getDaysInMonth(state.year, m);
+                for (let d = 1; d <= days; d++) {
+                    const key = getDateKey(new Date(state.year, m, d));
+                    const completed = getCompletedForDate(key);
+                    if (completed > 0) {
+                        totalActiveDays++;
+                        currentStreak++;
+                        if (currentStreak > maxStreak) maxStreak = currentStreak;
+                    } else {
+                        currentStreak = 0;
+                    }
+                }
+            }
+            
+            const consistency = Math.round((totalActiveDays / 365) * 1000) / 10;
+            
+            // Calculate habit yearly stats with growth
+            const habitYearlyStats = state.habits.map(habit => {
+                let totalCompleted = 0;
+                let monthlyData = [];
+                
+                for (let m = 0; m < 12; m++) {
+                    const days = getDaysInMonth(state.year, m);
+                    let monthCompleted = 0;
+                    for (let d = 1; d <= days; d++) {
+                        const key = getDateKey(new Date(state.year, m, d));
+                        if (getHabitCompletedForDate(key, habit)) {
+                            totalCompleted++;
+                            monthCompleted++;
+                        }
+                    }
+                    monthlyData.push(monthCompleted);
+                }
+                
+                const pct = Math.round((totalCompleted / 365) * 100);
+                
+                // Calculate growth (compare last month with first active month)
+                let growth = 0;
+                const lastMonthPct = monthlyData[11] > 0 ? Math.round((monthlyData[11] / getDaysInMonth(state.year, 11)) * 100) : 0;
+                
+                return {
+                    name: habit,
+                    totalCompleted,
+                    percentage: pct,
+                    monthlyData,
+                    growth: lastMonthPct
+                };
+            }).sort((a, b) => b.totalCompleted - a.totalCompleted);
+            
+            // Find top 3 for "highest growth" badge
+            const topHabits = habitYearlyStats.slice(0, 3).map(h => h.name);
+            
+            // Calculate monthly stats for cards
+            const monthlyCards = MONTHS.map((month, idx) => {
+                const stats = getMonthlyStats(state.year, idx);
+                
+                // Find top performer for this month
+                let topPerformer = null;
+                let topPerformerPct = 0;
+                state.habits.forEach(habit => {
+                    const habitStats = getHabitMonthlyStats(habit, state.year, idx);
+                    if (habitStats.completed > 0 && habitStats.percentage > topPerformerPct) {
+                        topPerformerPct = habitStats.percentage;
+                        topPerformer = habit;
+                    }
+                });
+                
+                // Calculate active days for this month
+                const days = getDaysInMonth(state.year, idx);
+                let activeDays = 0;
+                let monthMaxStreak = 0;
+                let monthCurrentStreak = 0;
+                
+                for (let d = 1; d <= days; d++) {
+                    const key = getDateKey(new Date(state.year, idx, d));
+                    if (getCompletedForDate(key) > 0) {
+                        activeDays++;
+                        monthCurrentStreak++;
+                        if (monthCurrentStreak > monthMaxStreak) monthMaxStreak = monthCurrentStreak;
+                    } else {
+                        monthCurrentStreak = 0;
+                    }
+                }
+                
+                const activeDaysPct = Math.round((activeDays / days) * 100);
+                
+                // Calculate growth vs previous month
+                let growth = 0;
+                if (idx > 0) {
+                    const prevStats = getMonthlyStats(state.year, idx - 1);
+                    growth = stats.percentage - prevStats.percentage;
+                }
+                
+                return {
+                    month,
+                    idx,
+                    ...stats,
+                    topPerformer,
+                    topPerformerPct,
+                    activeDays,
+                    activeDaysPct,
+                    maxStreak: monthMaxStreak,
+                    growth
+                };
+            });
+            
+            document.getElementById('mainContent').innerHTML = `
+                <!-- Top Section: Scorecard + Yearly Identity -->
+                <div class="flex gap-4 mb-4">
+                    <!-- Left: Scorecard -->
+                    <div class="w-80 border border-stone-200 bg-white flex-shrink-0">
+                        <div class="flex items-center gap-2 p-3 border-b border-stone-200">
+                            <span class="text-amber-500">⚡</span>
+                            <span class="text-xs font-black uppercase tracking-widest text-stone-600">${state.year} Scorecard</span>
+                            <div class="ml-auto">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.5">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 7 7 7m12-3a2.5 2.5 0 0 0-2.5 2.5c0 0 0 3 2.5 3m-10 4.5V19a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-5.5M8 14h8"/>
+                                    <path d="M12 4v10"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 space-y-4">
+                            <!-- Annual Done -->
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-bold text-stone-500 uppercase">Annual Done</span>
+                                    <span class="text-2xl font-black" style="color: ${theme.primary};">${yearlyStats.completed}</span>
+                                </div>
+                                <div class="w-full bg-stone-100 h-1.5 rounded-full overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: ${yearlyStats.percentage}%; background-color: ${theme.primary};"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Goal Rate -->
+                            <div class="border-t border-stone-100 pt-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-bold text-stone-500 uppercase">Goal Rate</span>
+                                    <span class="text-2xl font-black" style="color: ${theme.primary};">${yearlyStats.percentage}%</span>
+                                </div>
+                                <div class="w-full bg-stone-100 h-1.5 rounded-full overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: ${yearlyStats.percentage}%; background-color: ${theme.primary};"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Consistency & Max Streak -->
+                            <div class="border-t border-stone-100 pt-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <span class="text-[10px] font-bold text-stone-400 uppercase block mb-1">Consistency</span>
+                                        <span class="text-xl font-black">${consistency}%</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-[10px] font-bold text-stone-400 uppercase block mb-1">Max Streak</span>
+                                        <span class="text-xl font-black" style="color: ${theme.primary};">${maxStreak} Days</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Strongest Month -->
+                            <div class="border-t border-stone-100 pt-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-amber-500">♛</span>
+                                        <span class="text-[10px] font-bold text-stone-400 uppercase">Strongest Month</span>
+                                    </div>
+                                    <span class="text-xs font-black px-3 py-1 rounded" style="background-color: ${theme.primary}; color: white;">${MONTHS[bestMonth]} (${bestMonthPct}%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Yearly Identity: Habit Outcomes -->
+                    <div class="flex-1 border border-stone-200 bg-white">
+                        <div class="flex items-center gap-2 p-3 border-b border-stone-200">
+                            <span class="text-amber-500">◎</span>
+                            <span class="text-xs font-black uppercase tracking-widest text-stone-600">Yearly Identity: Habit Outcomes</span>
+                        </div>
+                        
+                        <div class="p-4">
+                            <div class="grid grid-cols-3 gap-x-8 gap-y-6">
+                                ${habitYearlyStats.slice(0, 6).map((hs, i) => {
+                                    const isTopHabit = topHabits.includes(hs.name);
+                                    return `
+                                    <div>
+                                        <div class="flex items-center justify-between mb-1">
+                                            <span class="text-xs font-black uppercase">${hs.name}</span>
+                                            <div class="flex items-center gap-2">
+                                                <span class="text-[10px] text-stone-400">0%</span>
+                                                <span class="text-[10px]" style="color: ${theme.primary};">⤴ ${hs.growth}%</span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-2">
+                                            ${isTopHabit ? `
+                                                <span class="inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 bg-amber-50 text-amber-600 border border-amber-200 rounded">
+                                                    <span>♛</span> HIGHEST GROWTH
+                                                </span>
+                                            ` : `
+                                                <span class="inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 bg-stone-50 text-stone-500 border border-stone-200 rounded">
+                                                    <span>♛</span> ACTIVE HABIT
+                                                </span>
+                                            `}
+                                        </div>
+                                        <!-- Mini sparkline chart -->
+                                        <div class="h-10 flex items-end gap-px">
+                                            ${hs.monthlyData.map((val, mIdx) => {
+                                                const maxVal = Math.max(...hs.monthlyData, 1);
+                                                const height = (val / maxVal) * 100;
+                                                return `<div class="flex-1 rounded-t" style="height: ${Math.max(height, 2)}%; background-color: ${val > 0 ? theme.primary : '#e5e5e5'}; opacity: ${val > 0 ? 0.7 : 0.3};"></div>`;
+                                            }).join('')}
+                                        </div>
+                                    </div>
+                                `}).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Month Cards Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    ${monthlyCards.map(mc => {
+                        const circumference = 2 * Math.PI * 20;
+                        const offset = circumference - (mc.percentage / 100) * circumference;
+                        const hasActivity = mc.completed > 0;
+                        
+                        return `
+                        <div class="border border-stone-200 bg-white flex flex-col">
+                            <!-- Month Header -->
+                            <div class="p-3 border-b border-stone-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <!-- Circle indicator -->
+                                        <div class="relative w-10 h-10">
+                                            <svg class="w-full h-full" style="transform: rotate(-90deg);" viewBox="0 0 44 44">
+                                                <circle cx="22" cy="22" r="20" stroke="#e5e5e5" stroke-width="3" fill="transparent"/>
+                                                <circle cx="22" cy="22" r="20" stroke="${theme.primary}" stroke-width="3" fill="transparent"
+                                                    stroke-dasharray="${circumference}" stroke-dashoffset="${offset}" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm font-black uppercase">${mc.month}</span>
+                                    </div>
+                                    <div class="text-right">
+                                        ${mc.growth !== 0 ? `<span class="text-[9px] ${mc.growth > 0 ? 'text-green-600' : 'text-rose-500'}">⤴${Math.abs(mc.growth)}%</span>` : ''}
+                                        <span class="text-sm font-black ml-1" style="color: ${mc.percentage > 0 ? theme.primary : '#a8a29e'};">${mc.percentage}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Top Performer -->
+                            <div class="px-3 py-2 border-b border-stone-100">
+                                <div class="text-[9px] font-bold text-stone-400 uppercase mb-0.5">Top Performer</div>
+                                <div class="text-xs font-black ${mc.topPerformer ? '' : 'text-stone-300'}">${mc.topPerformer || 'NONE'}</div>
+                                ${mc.topPerformer ? `<div class="text-[9px] text-stone-400">${mc.topPerformerPct}%</div>` : ''}
+                            </div>
+                            
+                            <!-- Active Days & Max Streak -->
+                            <div class="px-3 py-3 flex-1">
+                                <div class="grid grid-cols-2 gap-2 p-2 bg-stone-50 rounded">
+                                    <div class="text-center">
+                                        <div class="text-[8px] font-bold text-stone-400 uppercase">Active Days</div>
+                                        <div class="text-lg font-black" style="color: ${mc.activeDaysPct > 0 ? theme.primary : '#a8a29e'};">${mc.activeDaysPct}%</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-[8px] font-bold text-stone-400 uppercase">Max Streak</div>
+                                        <div class="text-lg font-black" style="color: ${mc.maxStreak > 0 ? theme.primary : '#a8a29e'};">${mc.maxStreak}D</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Focus Button -->
+                            <div class="p-3 pt-0">
+                                <button onclick="state.currentMonth=${mc.idx}; setView('monthly')" 
+                                    class="w-full py-2 text-white text-[10px] font-black uppercase tracking-wider hover:opacity-90 transition-opacity"
+                                    style="background-color: ${hasActivity ? theme.primary : '#78716c'};">
+                                    Focus
+                                </button>
+                            </div>
+                        </div>
+                    `}).join('')}
+                </div>
+            `;
+        }
+        
+        // ==================== MODALS ====================
+        function openHabitsModal() {
+            document.getElementById('habitsModal').classList.remove('hidden');
+            renderHabitsList();
+        }
+        
+        function closeHabitsModal() {
+            document.getElementById('habitsModal').classList.add('hidden');
+        }
+        
+        function renderHabitsList() {
+            document.getElementById('habitsList').innerHTML = state.habits.map((habit, idx) => `
+                <div class="flex items-center gap-2 p-2 border border-stone-200 rounded group hover:border-stone-400 transition-all" draggable="true" ondragstart="dragStart(event, ${idx})" ondragover="dragOver(event)" ondrop="drop(event, ${idx})" ondragend="dragEnd(event)">
+                    <!-- Drag Handle -->
+                    <button class="cursor-grab active:cursor-grabbing text-stone-300 hover:text-stone-500 p-1 touch-action-none" title="Drag to reorder">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="9" cy="6" r="1.5"/>
+                            <circle cx="15" cy="6" r="1.5"/>
+                            <circle cx="9" cy="12" r="1.5"/>
+                            <circle cx="15" cy="12" r="1.5"/>
+                            <circle cx="9" cy="18" r="1.5"/>
+                            <circle cx="15" cy="18" r="1.5"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Habit Name -->
+                    <span class="font-bold text-sm flex-1 truncate">${habit}</span>
+                    
+                    <!-- Move Up Button -->
+                    <button onclick="moveHabit(${idx}, -1)" class="text-stone-300 hover:text-stone-600 p-1 ${idx === 0 ? 'invisible' : ''}" title="Move up">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 15l-6-6-6 6"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Move Down Button -->
+                    <button onclick="moveHabit(${idx}, 1)" class="text-stone-300 hover:text-stone-600 p-1 ${idx === state.habits.length - 1 ? 'invisible' : ''}" title="Move down">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Edit Button -->
+                    <button onclick="editHabit(${idx})" class="text-stone-300 hover:text-blue-500 p-1" title="Edit habit">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Delete Button -->
+                    <button onclick="removeHabit(${idx})" class="text-stone-300 hover:text-red-500 p-1" title="Delete habit">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+        }
+        
+        // Drag and Drop functions
+        let draggedIndex = null;
+        
+        function dragStart(e, idx) {
+            draggedIndex = idx;
+            e.target.classList.add('opacity-50', 'border-dashed');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+        
+        function dragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+        
+        function drop(e, targetIdx) {
+            e.preventDefault();
+            if (draggedIndex !== null && draggedIndex !== targetIdx) {
+                const habit = state.habits.splice(draggedIndex, 1)[0];
+                state.habits.splice(targetIdx, 0, habit);
+                saveState();
+                renderHabitsList();
+                render();
+            }
+        }
+        
+        function dragEnd(e) {
+            e.target.classList.remove('opacity-50', 'border-dashed');
+            draggedIndex = null;
+        }
+        
+        // Move habit up or down
+        function moveHabit(idx, direction) {
+            const newIdx = idx + direction;
+            if (newIdx < 0 || newIdx >= state.habits.length) return;
+            
+            // Swap habits
+            const temp = state.habits[idx];
+            state.habits[idx] = state.habits[newIdx];
+            state.habits[newIdx] = temp;
+            
+            saveState();
+            renderHabitsList();
+            render();
+        }
+        
+        // Edit habit
+        function editHabit(idx) {
+            const currentName = state.habits[idx];
+            const newName = prompt('Edit habit name:', currentName);
+            
+            if (newName && newName.trim() && newName.trim() !== currentName) {
+                const trimmedName = newName.trim();
+                
+                // Check if name already exists
+                if (state.habits.includes(trimmedName)) {
+                    alert('A habit with this name already exists!');
+                    return;
+                }
+                
+                // Update habit name
+                state.habits[idx] = trimmedName;
+                
+                // Update habitData keys
+                Object.keys(state.habitData).forEach(dateKey => {
+                    if (state.habitData[dateKey][currentName] !== undefined) {
+                        state.habitData[dateKey][trimmedName] = state.habitData[dateKey][currentName];
+                        delete state.habitData[dateKey][currentName];
+                    }
+                });
+                
+                // Update habitGoals
+                if (state.habitGoals[currentName] !== undefined) {
+                    state.habitGoals[trimmedName] = state.habitGoals[currentName];
+                    delete state.habitGoals[currentName];
+                }
+                
+                saveState();
+                renderHabitsList();
+                render();
+            }
+        }
+        
+        function addHabit() {
+            const input = document.getElementById('newHabitInput');
+            const value = input.value.trim();
+            if (value && !state.habits.includes(value)) {
+                state.habits.push(value);
+                state.habitGoals[value] = 85;
+                saveState();
+                input.value = '';
+                renderHabitsList();
+                render();
+            }
+        }
+        
+        function removeHabit(idx) {
+            if (confirm(`Delete "${state.habits[idx]}"? This will remove all tracking data for this habit.`)) {
+                const habitName = state.habits[idx];
+                
+                // Remove from habits array
+                state.habits.splice(idx, 1);
+                
+                // Remove from habitData
+                Object.keys(state.habitData).forEach(dateKey => {
+                    if (state.habitData[dateKey][habitName] !== undefined) {
+                        delete state.habitData[dateKey][habitName];
+                    }
+                });
+                
+                // Remove from habitGoals
+                if (state.habitGoals[habitName] !== undefined) {
+                    delete state.habitGoals[habitName];
+                }
+                
+                saveState();
+                renderHabitsList();
+                render();
+            }
+        }
+        
+        function toggleSettings() {
+            document.getElementById('settingsDropdown').classList.toggle('hidden');
+        }
+        
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('settingsDropdown');
+            const settingsBtn = e.target.closest('button[title="Settings"]');
+            if (!settingsBtn && !dropdown.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+        
+        init();
+        
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('✅ Service Worker registered'))
+                .catch(err => console.log('SW registration failed:', err));
+        }
+    </script>
+
+
+</body></html>
